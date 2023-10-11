@@ -4,7 +4,9 @@ const path = require('path');
 const cors = require('cors')
 const {logger} = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler')
+const corsOptions = require('./config/corsOptions')
 const PORT = process.env.PORT || 3000;
+
 // const {router} = require('./routes/subdir')
 
 app.use(express.urlencoded({extended: false}))
@@ -13,27 +15,14 @@ app.use(express.json())
 //Static Routes
 
 app.use('/', express.static(path.join(__dirname, "public")));               //Apply static files
-app.use('/subdir', express.static(path.join(__dirname, "/public")))         //Apply static files
 
  
 app.use('/', require('./routes/root'))
-app.use('/subdir', require('./routes/subdir'))
 app.use('/employees', require('./routes/api/employees'))
 
 app.use(logger)
 
-const whitelist = ['https://www.yourdomain.com', 'http://127.0.0.1:3000', 'http://localhost:3100']
 
-const corsOptions = {
-    origin: (origin, callback) => {
-        if (whitelist.indexOf(origin) !== -1 || !origin) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORs'))
-        }
-    },
-    optionsSuccessStatus: 200
-}
 app.use(cors(corsOptions))
 
 // app.get('/', (req, res) => {
