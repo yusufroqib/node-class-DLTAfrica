@@ -136,3 +136,7 @@
 2023-10-10	16:31:41	92e31349-17cc-45c3-abff-b72337b88e3b	GET	undefined	/employees/1
 2023-10-10	16:33:53	978bd68a-1c38-48b3-889e-e552b8d9cc54	GET	undefined	/employees/1
 2023-10-11	16:13:50	b5efbd5b-a805-4cf8-93be-f321642f5a36	GET	undefined	/register
+2023-10-12	11:44:22	d46db4c4-6d5a-4ace-b360-ff368f4beedc	GET	undefined	/register
+2023-10-12	11:44:33	1f369d14-ec8a-40cb-8ea9-e5867334215e	GET	undefined	/register
+2023-10-12	11:44:46	3a733eff-ee05-48e2-9b71-5993b14a99b8	GET	undefined	/users
+2023-10-12	11:45:25	faa71105-dcd6-4b3b-b041-1320e21cf30a	GET	undefined	/auth
