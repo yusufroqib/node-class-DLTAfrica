@@ -9,23 +9,31 @@ const usersDB = {
   const handleRefreshToken = (req, res) => {
 
     const cookies = req.cookies
-    if(cookies?jwt)
-    const foundUser = usersDB.users.find(person => person.username === user);
+    if(cookies?.jwt) return res.sendStatus(401)
+
+    const refreshToken = cookies.jwt
+
+    const foundUser = usersDB.users.find(person => person.refreshToken === refreshToken);
     if (!foundUser) return res.sendStatus(401); //Unauthorized 
-    // evaluate password 
-    if (err || ) {
-        // create JWTs
-        const accessToken = jwt.sign(
-            { "username": foundUser.username },
+
+    jwt.verify(
+        refreshToken,
+        process.env.REFRESH_TOKEN_SECRET,
+        (err, decoded) => {
+            if (err || foundUser.username !== decoded.username) 
+            return res.sendStatus(403)
+        
+        const accessToken = jwt.sign (
+            {"username": decoded.username},
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: '60s' }
-        );
-        const refreshToken = jwt.sign(
-            { "username": foundUser.username },
-            process.env.REFRESH_TOKEN_SECRET,
-            { expiresIn: '1d' }
-        ); 
-    }
+            {expiresIn: "30s"}
+        )
+
+        res.json({accessToken})
+        }
+    )
+
+    
   }
   
   module.exports = { handleRefreshToken };
