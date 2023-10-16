@@ -10,7 +10,7 @@ const usersDB = {
 
     const cookies = req.cookies
         // console.log(cookies); 
-    if(!cookies?.jwt) return res.sendStatus(401)
+    if(!cookies?.jwt) return res.sendStatus(401) 
         // console.log(cookies.jwt);
     const refreshToken = cookies.jwt
 
