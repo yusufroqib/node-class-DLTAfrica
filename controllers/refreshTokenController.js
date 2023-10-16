@@ -9,19 +9,21 @@ const usersDB = {
   const handleRefreshToken = (req, res) => {
 
     const cookies = req.cookies
-    if(cookies?.jwt) return res.sendStatus(401)
-
+        // console.log(cookies); 
+    if(!cookies?.jwt) return res.sendStatus(401)
+        // console.log(cookies.jwt);
     const refreshToken = cookies.jwt
 
     const foundUser = usersDB.users.find(person => person.refreshToken === refreshToken);
     if (!foundUser) return res.sendStatus(401); //Unauthorized 
 
+    //Evaluate jwt
     jwt.verify(
         refreshToken,
         process.env.REFRESH_TOKEN_SECRET,
         (err, decoded) => {
             if (err || foundUser.username !== decoded.username) 
-            return res.sendStatus(403)
+            return res.sendStatus(403)      //Forbidden
         
         const accessToken = jwt.sign (
             {"username": decoded.username},
