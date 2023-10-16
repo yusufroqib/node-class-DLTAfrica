@@ -161,3 +161,6 @@
 2023-10-13	13:22:07	51aeabde-bee7-42e7-bdc9-e5d293e67287	POST	undefined	/register
 2023-10-13	13:22:25	ffb063a2-12dd-4c72-8f01-e2617a8803d2	POST	undefined	/auth
 2023-10-13	13:24:54	98301804-3149-4e89-98fb-7768ec61c748	POST	undefined	/auth
+2023-10-16	09:37:42	0b7b5f72-7510-47ff-bd39-ad8728ec80f1	GET	undefined	/
+2023-10-16	09:37:44	74545b0b-f2ab-4444-ad80-c493fe56111c	GET	undefined	/favicon.ico
+2023-10-16	09:46:44	1093bb7a-3ebb-44ce-a26c-c40b9cff4c7a	GET	undefined	/employees
